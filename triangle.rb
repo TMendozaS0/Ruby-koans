@@ -15,6 +15,19 @@
 #
 def triangle(a, b, c)
   # WRITE THIS CODE
+if (a <= 0) or (b <= 0) or (c <= 0)
+    raise TriangleError.new("Negativo o cero")
+  end
+  case
+  when (a == b) && (a == c) && (b == c)
+    return :equilateral
+  when (b == c) || (a == c) || (a == b) 
+    return :isosceles
+  when !(a == b) && !(a == c) && !(b == c)
+    return :scalene
+  else 
+raise TriangleError.new("Por si acaso")
+  end
 end
 
 # Error class used in part 2.  No need to change this code.
